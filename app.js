@@ -12,7 +12,7 @@ fetch('https://pokeapi.co/api/v2/pokemon/dratini')
         height: pokemon.height,
         weight: pokemon.weight,
         name: pokemon.name,
-        moves: pokemon.moves[13].move.name,
+        move: pokemon.moves[13].move.name,
         image: pokemon.sprites.other['official-artwork']['front_default'],
         purchaseLink: 'https://www.google.com/shopping/product/1?psb=1&tbm=shop&prds=epd%3A4577679370245728710%2Cprmr%3A3%2Cpid%3A4577679370245728710&authuser&utm_source=google_shopping&utm_medium=tu_prop&utm_content=eid-lsjeuxoeqt&utm_campaign=100945087'
     }
@@ -51,11 +51,11 @@ function makePokemonCard(pokemon) {
         // Create a tag, add 2 class, add href, add text
     const move = document.createElement('p');
     move.classList.add('card-text');
-    move.textContent = pokemon.move;
+    move.textContent = `Move: ${pokemon.move}`;
 
     const ability = document.createElement('p');
     ability.classList.add('card-text');
-    ability.textContent = pokemon.ability;
+    ability.textContent = `Ability: ${pokemon.ability}`;
 
     const purchaseLink = document.createElement('a');
     purchaseLink.classList.add('btn', 'btn-primary');
@@ -69,6 +69,7 @@ function makePokemonCard(pokemon) {
     cardBody.appendChild(purchaseLink);
     // Append card-body div to card
     card.appendChild(cardBody)
+    card.style.border = '2px solid goldenrod'
     // Append card div to container div
         return card;
 }
